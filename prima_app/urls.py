@@ -8,5 +8,5 @@ urlpatterns = [
     path('chi_siamo', chi_siamo, name = 'chi_siamo'),
     path('lista', lista, name = 'lista'),
     path('variabili', variabili, name = 'variabili'),
-    path('', index, name = 'index')
+    path('prima_app', prima_app, name = 'prima_app')
 ]

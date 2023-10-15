@@ -13,8 +13,8 @@ def lista(request):
 def chi_siamo(request):
     return render(request, "chi_siamo.html")
 
-def index(request):
-    return render(request, "index.html")
+def prima_app(request):
+    return render(request, "prima_app.html")
 
 def variabili(request):
     context = {
