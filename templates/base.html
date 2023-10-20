@@ -18,30 +18,38 @@
  
   </head>
   <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Primo Progetto</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Prima App
+              </a> 
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a href="{% url 'prima_app:homepage'%}">Home page benvenuto</a><br>
+            <a href="{% url 'prima_app:welcome'%}">Welcome</a><br>
+            <a href="{% url 'prima_app:lista'%}">Lista</a><br>
+            <a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a><br>
+            <a href="{% url 'prima_app:variabili'%}">Variabili</a>
+          </div>
+        </li>
         <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="dDpP" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Prima App
-                      </a> 
-                  <div id="dDpP" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="{% url 'prima_app:homepage'%}">Home page benvenuto</a><br>
-                    <a href="{% url 'prima_app:welcome'%}">Welcome</a><br>
-                    <a href="{% url 'prima_app:lista'%}">Lista</a><br>
-                    <a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a><br>
-                    <a href="{% url 'prima_app:variabili'%}">Variabili</a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Seconda App
-                     </a> 
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="{% url 'seconda_app:es_for'%}">Es For</a><br>
-                    <a href="{% url 'seconda_app:es_if'%}">Es If</a><br>
-                    <a href="{% url 'seconda_app:if_else_elif'%}">If else elif</a>
-                  </div>
-                </li>
-          </nav>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Seconda App
+             </a> 
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a href="{% url 'seconda_app:es_for'%}">Es For</a><br>
+            <a href="{% url 'seconda_app:es_if'%}">Es If</a><br>
+            <a href="{% url 'seconda_app:if_else_elif'%}">If else elif</a>
+          </div>
+        </li>
+        </ul>
+      </div>
+    </nav>
          
     
 
