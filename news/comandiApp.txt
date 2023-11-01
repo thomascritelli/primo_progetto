@@ -1,0 +1,87 @@
+>>> from news.models import Giornalista
+>>> Giornalista.objects.all()
+<QuerySet []>
+>>> g1 = Giornalista(nome = "Mario", cognome = "Rossi")
+>>> g1.save()
+>>> g2 = Giornalista() 
+>>> g2.nome = "Pinco"
+>>> g2.cognome = "Pallo"
+>>> g2.save()
+>>> g1
+<Giornalista: Mario Rossi>
+>>> g1.nome
+'Mario'
+>>> g1.cognome
+'Rossi'
+>>> g2
+<Giornalista: Pinco Pallo>
+>>> g2.cognome
+'Pallo'
+>>> g3 = Giornalista(nome = "Mario", cognome = "Bianchi")
+>>> g3.save()
+>>> g3
+<Giornalista: Mario Bianchi>
+>>> Giornalista.objects.create(nome = "Nome", cognome = "Cognome") 
+<Giornalista: Nome Cognome>
+>>> g1.id
+1
+>>> g2.id
+2
+>>> g3.pk
+3
+>>> Giornalista.objects.get(pk = 1)
+<Giornalista: Mario Rossi>
+>>> Giornalista.objects.filter(nome="Mario")
+<QuerySet [<Giornalista: Mario Rossi>, <Giornalista: Mario Bianchi>]>
+>>> Giornalista.objects.all()
+<QuerySet [<Giornalista: Mario Rossi>, <Giornalista: Pinco Pallo>, <Giornalista: Mario Bianchi>, <Giornalista: Nome Cognome>]>
+>>> Giornalista.objects.exclude(cognome = "Rossi")
+<QuerySet [<Giornalista: Pinco Pallo>, <Giornalista: Mario Bianchi>, <Giornalista: Nome Cognome>]>
+>>> for g in Giornalista.objects.all():
+...     g.nome
+... 
+'Mario'
+'Pinco'
+'Mario'
+'Nome'
+>>> gio = Giornalista.objects.get(pk=2) 
+>>> gio
+<Giornalista: Pinco Pallo>
+>>> gio.nome = "Guido"
+>>> gio.cognome = "Guidi"
+>>> gio.save()
+>>> Giornalista.objects.all()
+<QuerySet [<Giornalista: Mario Rossi>, <Giornalista: Guido Guidi>, <Giornalista: Mario Bianchi>, <Giornalista: Nome Cognome>]>
+>>> gior = Giornalista.objects.get(pk=1)
+>>> gior
+<Giornalista: Mario Rossi>
+>>> gior.delete()
+(1, {'news.Giornalista': 1})
+>>> Giornalista.objects.all() 
+<QuerySet [<Giornalista: Guido Guidi>, <Giornalista: Mario Bianchi>, <Giornalista: Nome Cognome>]>
+>>> from news.models import Articolo
+>>> a1 = Articolo()
+>>> a1.titolo = "primo articolo!"
+>>> a1.contenuto = "Bella rega" 
+>>> a1.save()
+django.db.utils.IntegrityError: NOT NULL constraint failed: news_articolo.giornalista_id
+>>> g = Giornalista.objects.get(id = 3)
+>>> a1.giornalista = Giornalista.objects.get(id = 3)
+>>> a1.save()
+>>> nuovo = Articolo(titolo = "Secondo articolo!", contenuto = "Il mio secondo 
+articolo!", giornalista = Giornalista.objects.get(id = 3))
+>>> nuovo.save()
+>>> nuovo
+<Articolo: Secondo articolo!>
+>>> nuovo.contenuto
+'Il mio secondo articolo!'
+>>> nuovo.giornalista
+<Giornalista: Mario Bianchi>
+>>> nuovo.giornalista_id
+3
+>>> x = Giornalista.objects.get(id = 3)
+>>> x
+<Giornalista: Mario Bianchi>
+>>> x.articoli.all()
+<QuerySet [<Articolo: Secondo articolo!>, <Articolo: primo articolo!>]>
+
