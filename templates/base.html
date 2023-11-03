@@ -27,34 +27,34 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Prima App
+            </a> 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="{% url 'prima_app:homepage'%}">Home page benvenuto</a><br>
+              <a href="{% url 'prima_app:welcome'%}">Welcome</a><br>
+              <a href="{% url 'prima_app:lista'%}">Lista</a><br>
+              <a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a><br>
+              <a href="{% url 'prima_app:variabili'%}">Variabili</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Seconda App
               </a> 
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="{% url 'prima_app:homepage'%}">Home page benvenuto</a><br>
-            <a href="{% url 'prima_app:welcome'%}">Welcome</a><br>
-            <a href="{% url 'prima_app:lista'%}">Lista</a><br>
-            <a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a><br>
-            <a href="{% url 'prima_app:variabili'%}">Variabili</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="{% url 'seconda_app:es_for'%}">Es For</a><br>
+              <a href="{% url 'seconda_app:es_if'%}">Es If</a><br>
+              <a href="{% url 'seconda_app:if_else_elif'%}">If else elif</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Seconda App
-             </a> 
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="{% url 'seconda_app:es_for'%}">Es For</a><br>
-            <a href="{% url 'seconda_app:es_if'%}">Es If</a><br>
-            <a href="{% url 'seconda_app:if_else_elif'%}">If else elif</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              News
-           </a> 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a href="{% url 'news:homeview'%}">Home</a><br>
-          {% comment %} <a href="{% url 'news:articoloDetailView'%}">Articolo 1</a><br> {% endcomment %}
-        </div>
-      </li>
+                News
+            </a> 
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="{% url 'news:homeview'%}">Home</a><br>
+              {% comment %} <a href="{% url 'news:articoloDetailView'%}">Articolo 1</a><br> {% endcomment %}
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
