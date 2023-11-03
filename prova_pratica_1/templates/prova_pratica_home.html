@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Esempio {% endblock title %}
+
+{% block content %}
+    <li><a href="{% url 'prova_pratica_1:index'%}">../</a></li>
+    <li><a href="{% url 'prova_pratica_1:somma'%}">somma</a></li>
+    <li><a href="{% url 'prova_pratica_1:media'%}">media</a></li>
+    <li><a href="{% url 'prova_pratica_1:voti'%}">voti</a></li>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Somma {% endblock title %}
+
+{% block content %}
+<li><a href="{% url 'prova_pratica_1:index'%}">../</a></li>
+    {% if var1 > var2 %}
+        <p><span style="color:green">{{ var1 }}</span> + <span style="color:red">{{ var2 }}</span> = {{ sum }}</p>
+    {% endif %}
+    {% if var1 < var2 %}
+        <p><span style="color:red">{{ var1 }}</span> + <span style="color:green">{{ var2 }}</span> = {{ sum }}</p>
+    {% endif %}
+    {% if var1 == var2 %}
+        <p><span style="color:black">{{ var1 }}</span> + <span style="color:black">{{ var2 }}</span> = {{ sum }}</p>
+    {% endif %}
+{% endblock content %}
