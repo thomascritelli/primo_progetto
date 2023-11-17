@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<li><a href="{% url 'prova_pratica_1:index'%}">../</a></li>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<table>
+    <th>Studente</th>
+    <th>Voto</th>
+    
+    {% for key, value in voti.items %}
+    <tr>
+        <td>{{ key }}</td>
+        {% if value < 6 %}
+            <td style="red">{{ value }}</td>
+        {% else %}
+            <td style="green">{{ value }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

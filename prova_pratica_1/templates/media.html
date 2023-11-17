@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Media {% endblock title %}
+
+{% block content %}
+<li><a href="{% url 'prova_pratica_1:index'%}">../</a></li>
+    {% for x in lista %}
+        
+        {% if forloop.last %}
+            <i>{{ x }}</i>
+        {% else %}
+            <i>{{ x }},</i>
+        {% endif %}
+    {% endfor %}
+    {% if media == 6 %}
+        <p>La media è: <span style ="color:black">{{ media }}</span></p>
+    {% elif media < 6 %}
+        <p>La media è: <span style ="color:red">{{ media }}</span></p>
+    {% else %}
+        <p>La media è: <span style ="color:green">{{ media }}</span></p>
+    {% endif %}   
+{% endblock content %}
