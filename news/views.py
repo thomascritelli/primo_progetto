@@ -46,3 +46,13 @@ def articoloDetailView(request, pk):
     context = {"articolo": articolo}
     return render(request, "articolo_detail.html", context)
 
+def lista_articoli(request, pk):
+    if pk < 1:
+        articoli = Articolo.objects.all()
+    else:
+        articoli = Articolo.objects.filter(giornalista_id = pk)
+    context = {
+        'articoli' : articoli,
+    }
+    return render(request, 'lista_articoli.html', context)
+
