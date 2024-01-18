@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{% block title %}Lista Materie{% endblock title %}
+
+{% block content %}
+    {% for studente,valori in voti.items %}
+
+        <h3>{{ valori.0 }}</h3>
+        {% for materia, voto, assenza in valori %}
+            <p>{{ materia }}: {{ voto }}; Assenze: {{assenza}}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}

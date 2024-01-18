@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}view d{% endblock title %}
+
+{% block content %}
+<h3>Min max Studenti</h3>
+
+{% for chiave,valore in min_max.items %}
+    <h6>{{ chiave }}</h6>
+    <p>{{ valore }}</p>
+{% endfor %}
+{% endblock content %}

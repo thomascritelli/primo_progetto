@@ -3,7 +3,7 @@
 {% block content %}
     {% if pk %}
         <h1>Articoli di {{ articoli.0.giornalista}} </h1> 
-        {% for articolo in articoli %}
+        {% for articolo in articoli %} 
             <li>Titolo: {{ articolo.titolo }}</li>
             <hr>
         {% endfor %}

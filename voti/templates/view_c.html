@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}view c{% endblock title %}
+
+{% block content %}
+<h3>Medie Studenti</h3>
+{% for chiave,valore in medie.items %}
+    <p>{{ chiave }} {{ valore }}</p>
+
+{% endfor %}
+{% endblock content %}
