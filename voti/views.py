@@ -22,35 +22,47 @@ def view_b(request):
     }
     return render(request, 'view_b.html', context)
 
-# def view_c(request):
-#     media = 0
-#     valoriMedia = [("(getDiz()[0]",0),("Antonio Barbera",0),("",0)]
+def view_c(request):
+    medie = {}
+    for chiave, valori in getDiz().items():
+        media = 0
+        for materia,voto,assenze in valori:
+            media += voto
+        medie[chiave] = media / len(valori)
+    context = {
+        'medie': medie,
+    }
+    return render(request, 'view_c.html', context)
 
-#     cont = 0
-#     for valori in (getDiz()):
-#         media = 0
-#         for i in range(len(getMaterie())):
-#             media += valori[1][i]
-#         media /= cont
-#         valoriMedia[cont][1] = media
-#         cont += 1
-        
-            
-#     context = {
-#         'voti': getDiz(),
-#         'valoriMedia':valoriMedia,
-#     }
-#     return render(request, 'view_c.html', context)
+def view_d(request):
+    min_max = {}
 
-# def view_d(request):
-#     max = 0
-#     min = max
-#     for i in range(len(getDiz())):
-#         for j in range(len(getMaterie())):
-#             if (getDiz()[i][j][1] > max):
-#                 max = getDiz()[i][j][1]
-#             elif getDiz()[i][j][1] < min:
-#                 min = getDiz()[i][j][1]
-#     valoriMedia = [(getDiz()[i],max,min),(getDiz()[i],max,min),(getDiz()[i],max,min)]
+    max = 0
+    max_materia = ""
+    max_studente = ""
+    min = 0
+
+    for chiave, valori in getDiz().items():
+        for materia,voto,assenze in valori:
+            if (voto > max):
+                if min == 0:
+                    min = voto
+                    min_materia = materia
+                    min_studente = chiave
+                max = voto
+                max_materia = materia
+                max_studente = chiave
+            elif voto < min:
+                min = voto
+                min_materia = materia
+                min_studente = chiave
+
+    min_max[min_studente] = [(min_materia,min)]
+    min_max[max_studente] = [(max_materia,max)]
+
+    context = {
+        'min_max' : min_max,
+    }
+    return render(request, 'view_d.html', context)
 
 
